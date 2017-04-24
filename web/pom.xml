@@ -101,9 +101,11 @@
               <srcdir>${typescript.source.directory}</srcdir>
               <arguments>build</arguments>
               <triggerfiles>
+                <triggerfile>gruntfile.js</triggerfile>
                 <triggerfile>package.json</triggerfile>
-                <triggerfile>Gruntfile.js</triggerfile>
                 <triggerfile>tsconfig.json</triggerfile>
+                <triggerfile>grunt/copy.js</triggerfile>
+                <triggerfile>grunt/ts.js</triggerfile>
               </triggerfiles>
               <installDirectory>${node.install.directory}</installDirectory>
             </configuration>
