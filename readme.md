@@ -1,3 +1,5 @@
+## Build status
+[![build status](https://travis-ci.org/gergelyrozsonits/springboot-grunt-typescript-angular2-archetype-sandbox.svg)](https://travis-ci.org/gergelyrozsonits/springboot-grunt-typescript-angular2-archetype-sandbox)
 ## Archetype
 The project serves as an archetype sandbox. To generate an archetype from it please use the following command:
 ```
