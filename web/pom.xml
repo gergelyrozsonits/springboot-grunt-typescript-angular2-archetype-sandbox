@@ -42,6 +42,10 @@
       <resource>
         <targetPath>/static</targetPath>
         <directory>${project.basedir}/${typescript.source.directory}</directory>
+        <excludes>
+          <exclude>.tscache</exclude>
+          <exclude>.baseDir.ts</exclude>
+        </excludes>
       </resource>
       <!-- Add node modules to '/node_modules' -->
       <resource>
