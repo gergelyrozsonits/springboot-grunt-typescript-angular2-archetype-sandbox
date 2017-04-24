@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "system",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "listEmittedFiles": true,
+    "baseUrl": ".",
+    "types": [
+        "jasmine"
+    ],
+    "lib": [
+        "es2015",
+        "dom"
+    ],
+    "rootDir": ".",
+    "rootDirs": [
+        "src/main/ts",
+        "src/test/ts"
+    ],
+    "paths": {
+        "*": [
+            "src/main/ts/*",
+            "src/test/ts/*"
+        ]
+    },
+    "mapRoot": ".",
+    "outDir": "./target/generated-resources/"
+  },
+  "include":[
+    "src/main/ts/**/*.ts",
+    "src/test/ts/**/*.ts"
+  ]
+}

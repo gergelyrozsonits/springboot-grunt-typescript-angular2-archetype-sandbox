@@ -1,0 +1,127 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.pub4us</groupId>
+    <artifactId>springboot-grunt-typescript-angular2-archetype-sandbox</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>web</artifactId>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-thymeleaf</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-devtools</artifactId>
+      <optional>true</optional>
+    </dependency>
+  </dependencies>
+
+  <properties>
+    <!-- Switches -->
+    <skipGrunt>false</skipGrunt>
+    <node.install.directory>target</node.install.directory>
+    <typescript.source.directory>src/main/ts</typescript.source.directory>
+    <typescript.test.directory>src/test/ts</typescript.test.directory>
+  </properties>
+
+  <build>
+    <resources>
+      <!-- Setup default resource directory -->
+      <resource>
+        <directory>${project.basedir}/src/main/resources</directory>
+      </resource>
+      <!-- Add compiled typescripts to src/test folders -->
+      <!-- Please note: the mapping is covered in tsconfig level for 'src/main/ts/*' -->
+      <resource>
+        <targetPath>/static</targetPath>
+        <directory>${project.basedir}/${typescript.source.directory}</directory>
+      </resource>
+      <!-- Add node modules to '/node_modules' -->
+      <resource>
+        <targetPath>/node_modules</targetPath>
+        <directory>${project.basedir}/node_modules</directory>
+      </resource>
+      <!-- Add exposed configuration javascript(s) to '/static' -->
+      <resource>
+        <targetPath>/static</targetPath>
+        <directory>${project.basedir}</directory>
+        <includes>
+          <include>system.conf.js</include>
+        </includes>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>com.github.eirslett</groupId>
+        <artifactId>frontend-maven-plugin</artifactId>
+        <version>1.4</version>
+        <executions>
+          <execution>
+            <id>install-node-and-npm</id>
+            <phase>initialize</phase>
+            <goals>
+              <goal>install-node-and-npm</goal>
+            </goals>
+            <!-- Optional configuration which provides for running any npm command -->
+            <configuration>
+              <nodeVersion>v4.6.0</nodeVersion>
+              <npmVersion>2.15.9</npmVersion>
+              <installDirectory>${node.install.directory}</installDirectory>
+            </configuration>
+          </execution>
+          <execution>
+            <id>npm-install</id>
+            <phase>initialize</phase>
+            <goals>
+              <goal>npm</goal>
+            </goals>
+            <configuration>
+              <arguments>install</arguments>
+              <installDirectory>${node.install.directory}</installDirectory>
+            </configuration>
+          </execution>
+          <execution>
+            <id>grunt-build</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>grunt</goal>
+            </goals>
+            <configuration>
+              <srcdir>${typescript.source.directory}</srcdir>
+              <arguments>build</arguments>
+              <triggerfiles>
+                <triggerfile>package.json</triggerfile>
+                <triggerfile>Gruntfile.js</triggerfile>
+                <triggerfile>tsconfig.json</triggerfile>
+              </triggerfiles>
+              <installDirectory>${node.install.directory}</installDirectory>
+            </configuration>
+          </execution>
+          <execution>
+            <id>grunt-test</id>
+            <phase>test</phase>
+            <goals>
+              <goal>grunt</goal>
+            </goals>
+            <configuration>
+              <srcdir>${typescript.source.directory}</srcdir>
+              <arguments>test</arguments>
+              <installDirectory>${node.install.directory}</installDirectory>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
