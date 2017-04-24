@@ -107,6 +107,7 @@
                 <triggerfile>grunt/copy.js</triggerfile>
                 <triggerfile>grunt/ts.js</triggerfile>
               </triggerfiles>
+              <failOnError>true</failOnError>
               <installDirectory>${node.install.directory}</installDirectory>
             </configuration>
           </execution>
@@ -119,6 +120,7 @@
             <configuration>
               <srcdir>${typescript.source.directory}</srcdir>
               <arguments>test</arguments>
+              <failOnError>true</failOnError>
               <installDirectory>${node.install.directory}</installDirectory>
             </configuration>
           </execution>
