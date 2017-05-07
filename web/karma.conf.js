@@ -2,9 +2,7 @@ module.exports = function (config) {
     config.set({
         files: [
             {pattern: 'target/test-resources/static/**/*.js', included: true, watched: false},
-            {pattern: 'node_modules/zone.js/**/*.js', included: false, watched: false},
-            {pattern: 'node_modules/rxjs/**/*.js', included: false, watched: false},
-            {pattern: 'node_modules/@angular/**/*.js', included: false, watched: false},
+            {pattern: 'node_modules/!(karma-systemjs)/**/*.js', included: false, watched: false}
         ],
         frameworks: [
             "systemjs",
