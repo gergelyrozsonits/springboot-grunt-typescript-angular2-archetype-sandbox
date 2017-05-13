@@ -1,7 +1,7 @@
 module.exports = function (config) {
     config.set({
         files: [
-            {pattern: 'target/test-resources/static/**/*.js', included: true, watched: false},
+            {pattern: 'target/test-resources/**/*.js', included: true, watched: false},
             {pattern: 'node_modules/!(karma-systemjs)/**/*.js', included: false, watched: false}
         ],
         frameworks: [
@@ -31,7 +31,7 @@ module.exports = function (config) {
                     'systemjs': 'node_modules/systemjs/dist/system.js',
                     'system-polyfills': 'node_modules/systemjs/dist/system-polyfills.js',
                     'es6-module-loader': 'node_modules/es6-module-loader/dist/es6-module-loader.js',
-                    '*': 'target/test-resources/static/*'
+                    '*': 'target/test-resources/*'
                 }
             }
         }

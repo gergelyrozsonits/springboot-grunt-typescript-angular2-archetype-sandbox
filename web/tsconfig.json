@@ -29,7 +29,8 @@
             "src/test/ts/*"
         ]
     },
-    "mapRoot": ".",
+    "mapRoot": "/",
+    "sourceRoot": "/",
     "outDir": "./target/generated-resources/"
   },
   "include":[

@@ -8,7 +8,7 @@ module.exports = function(grunt) {
     // - As its highlighted in the ticket as well the copy needs to be done at build time
     // - In order to have a proper source mapping the 'mapRoot' has been overridden; in this way in the '.js.map' the path is relative to the
     //   'src/main/ts' and 'src/test/ts' folders. Please take this into account during deploy
-    grunt.registerTask('build', ['ts:build', 'copy:source']);
+    grunt.registerTask('build', ['ts:build', 'string-replace:source']);
     grunt.registerTask('test', ['ts:build', 'copy:test', 'karma:unit']);
     // Please note:
     // - The 'grunt-contrib-connect' server only runs as long as grunt is running. Once grunt's tasks have completed, the web server stops.
