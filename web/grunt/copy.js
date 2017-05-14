@@ -6,12 +6,12 @@ module.exports = {
             expand: true,
             cwd: 'target/generated-resources/src/main/ts/',
             src: ['**/*.js'],
-            dest: 'target/test-resources'
+            dest: 'target/test-resources/'
         }, {
             expand: true,
             cwd: 'target/generated-resources/src/test/ts/',
             src: ['**/*.js'],
-            dest: 'target/test-resources'
+            dest: 'target/test-resources/'
         }]
     }
 };
