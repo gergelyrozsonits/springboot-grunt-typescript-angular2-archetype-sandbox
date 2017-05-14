@@ -37,28 +37,10 @@
       <resource>
         <directory>${project.basedir}/src/main/resources</directory>
       </resource>
-      <!-- Add compiled typescripts to src/test folders -->
-      <!-- Please note: the mapping is covered in tsconfig level for 'src/main/ts/*' -->
-      <resource>
-        <targetPath>${project.basedir}/target/classes/static</targetPath>
-        <directory>${project.basedir}/${typescript.source.directory}</directory>
-        <excludes>
-          <exclude>.tscache</exclude>
-          <exclude>.baseDir.ts</exclude>
-        </excludes>
-      </resource>
       <!-- Add node modules to '/node_modules' -->
       <resource>
         <targetPath>${project.basedir}/target/classes/node_modules</targetPath>
         <directory>${project.basedir}/node_modules</directory>
-      </resource>
-      <!-- Add exposed configuration javascript(s) to '/static' -->
-      <resource>
-        <targetPath>${project.basedir}/target/classes/static</targetPath>
-        <directory>${project.basedir}</directory>
-        <includes>
-          <include>system.conf.js</include>
-        </includes>
       </resource>
     </resources>
     <plugins>
