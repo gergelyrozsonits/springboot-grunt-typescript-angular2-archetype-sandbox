@@ -25,10 +25,10 @@
 
   <properties>
     <!-- Switches -->
-    <skipGrunt>false</skipGrunt>
     <node.install.directory>target</node.install.directory>
     <typescript.source.directory>src/main/ts</typescript.source.directory>
     <typescript.test.directory>src/test/ts</typescript.test.directory>
+    <scss.source.directory>src/main/scss</scss.source.directory>
   </properties>
 
   <build>
@@ -61,8 +61,8 @@
             </goals>
             <!-- Optional configuration which provides for running any npm command -->
             <configuration>
-              <nodeVersion>v4.6.0</nodeVersion>
-              <npmVersion>2.15.9</npmVersion>
+              <nodeVersion>v6.9.1</nodeVersion>
+              <npmVersion>4.5.0</npmVersion>
               <installDirectory>${node.install.directory}</installDirectory>
             </configuration>
           </execution>
@@ -84,9 +84,10 @@
               <goal>grunt</goal>
             </goals>
             <configuration>
-              <srcdir>${typescript.source.directory}</srcdir>
+              <srcdir>src</srcdir>
               <arguments>build</arguments>
               <triggerfiles>
+                <triggerfile>system.conf.js</triggerfile>
                 <triggerfile>gruntfile.js</triggerfile>
                 <triggerfile>package.json</triggerfile>
                 <triggerfile>tsconfig.json</triggerfile>

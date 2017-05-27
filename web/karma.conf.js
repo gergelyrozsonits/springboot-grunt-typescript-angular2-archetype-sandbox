@@ -20,9 +20,9 @@ module.exports = function (config) {
         systemjs: {
             configFile: './system.conf.js',
             includeFiles : [
+                'node_modules/babel-polyfill/dist/polyfill.js',
                 'node_modules/reflect-metadata/Reflect.js',
-                'node_modules/zone.js/dist/zone.js',
-                'node_modules/es6-shim/es6-shim.js'
+                'node_modules/zone.js/dist/zone.js'
             ],
             testFileSuffix: ".spec.js",
             config: {

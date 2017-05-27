@@ -1,19 +1,9 @@
 module.exports = {
-        source: {
+    tsSource: {
         files: [{
             expand: true,
             cwd: 'target/generated-resources/src/main/ts/',
             src: ['**/*'],
-            dest: 'target/classes/static/'
-        },{
-            expand: true,
-            cwd: 'src/main/ts/',
-            src: ['**/*.ts'],
-            dest: 'target/classes/static/'
-        },{
-            expand: true,
-            cwd: '.',
-            src: ['system.conf.js'],
             dest: 'target/classes/static/'
         }],
         options: {
@@ -23,6 +13,20 @@ module.exports = {
             }, {
                 pattern: /"sources":\["src\/main\/ts\/(.+)"]/g,
                 replacement: '"sources":["$1"]'
+            }]
+        }
+    },
+    scssSource: {
+        files: [{
+            expand: true,
+            cwd: 'target/generated-resources/src/main/scss/',
+            src: ['**/*'],
+            dest: 'target/classes/static/'
+        }],
+        options: {
+            replacements: [{
+                pattern: /(?:..\/)+src\/main\/scss\/(.*)/g,
+                replacement: '$1'
             }]
         }
     }
